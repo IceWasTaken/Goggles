@@ -1,0 +1,17 @@
+{
+  "itemGroup.goggles": "Goggles",
+
+  "item.goggles.visual_track_empty": "Empty Visual Track",
+  "item.goggles.visual_track_null": "NULL Visual Track",
+  "item.goggles.visual_track_creeper": "Creeper Visual Track",
+  "item.goggles.visual_track_blur": "Blur Visual Track",
+  "item.goggles.visual_track_invert": "Invert Visual Track",
+  "item.goggles.visual_track_spider": "Spider Visual Track",
+
+  "item.goggles.visual_augmentation_device": "Visual Augment Device",
+
+  "track.creeper": "Creeper",
+  "track.spider": "Spider",
+  "track.blur": "Blur",
+  "track.negative": "Negative"
+}

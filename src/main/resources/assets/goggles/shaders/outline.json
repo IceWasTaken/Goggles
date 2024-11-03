@@ -1,0 +1,18 @@
+{
+    "targets": [
+        "swap",
+        "final"
+    ],
+    "passes": [
+        {
+            "name": "goggles:outline",
+            "intarget": "final",
+            "outtarget": "swap"
+        },
+        {
+            "name": "goggles:blit",
+            "intarget": "swap",
+            "outtarget": "final"
+        }
+    ]
+}

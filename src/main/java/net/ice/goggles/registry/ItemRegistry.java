@@ -1,0 +1,51 @@
+package net.ice.goggles.registry;
+
+import net.ice.goggles.Goggles;
+import net.ice.goggles.common.item.ItemVisionAugmentDevice;
+import net.ice.goggles.common.item.ItemVisualTrack;
+import net.ice.goggles.common.util.EnumTrackID;
+import net.minecraft.world.item.Item;
+import net.neoforged.neoforge.registries.DeferredItem;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Supplier;
+
+public class ItemRegistry {
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Goggles.MODID);
+    public static List<DeferredItem<? extends Item>> ITEM_ARRAY = new ArrayList<>();
+    public static final DeferredItem<Item> ITEM_VISION_DEVICE = register("visual_augmentation_device", () -> new ItemVisionAugmentDevice(new Item.Properties()));
+    public static final DeferredItem<Item> ITEM_TRACK_NULL = ITEMS.register("visual_track_null", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.DEFAULT));
+    public static final DeferredItem<Item> ITEM_TRACK_ANTIALIAS = register("visual_track_antialias", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.ANTIALIAS));
+    public static final DeferredItem<Item> ITEM_TRACK_ART = register("visual_track_art", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.ART));
+    public static final DeferredItem<Item> ITEM_TRACK_BITS = register("visual_track_bits", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.BITS));
+    public static final DeferredItem<Item> ITEM_TRACK_BLOBS = register("visual_track_blobs", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.BLOBS));
+    public static final DeferredItem<Item> ITEM_TRACK_BLOBS2 = register("visual_track_blobs_two", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.BLOBS2));
+    public static final DeferredItem<Item> ITEM_TRACK_BLUR = register("visual_track_blur", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.BLUR));
+    public static final DeferredItem<Item> ITEM_TRACK_BUMPY = register("visual_track_bumpy", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.BUMPY));
+    public static final DeferredItem<Item> ITEM_TRACK_COLOR_CONVOLVE = register("visual_track_color_convolve", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.COLOR_CONVOLVE));
+    public static final DeferredItem<Item> ITEM_TRACK_CREEPER = register("visual_track_creeper", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.CREEPER));
+    public static final DeferredItem<Item> ITEM_TRACK_DECONVERGE = register("visual_track_deconverge", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.DECONVERGE));
+    public static final DeferredItem<Item> ITEM_TRACK_DESATURATE = register("visual_track_desaturate", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.DESATURATE));
+    public static final DeferredItem<Item> ITEM_TRACK_ENTITY_OUTLINE = register("visual_track_entity_outline", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.ENTITY_OUTLINE));
+    public static final DeferredItem<Item> ITEM_TRACK_FLIP = register("visual_track_flip", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.FLIP));
+    public static final DeferredItem<Item> ITEM_TRACK_FXAA = register("visual_track_fxaa", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.FXAA));
+    public static final DeferredItem<Item> ITEM_TRACK_GREEEN = register("visual_track_green", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.GREEN));
+    public static final DeferredItem<Item> ITEM_TRACK_INVERT = register("visual_track_invert", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.INVERT));
+    public static final DeferredItem<Item> ITEM_TRACK_NOTCH = register("visual_track_notch", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.NOTCH));
+    public static final DeferredItem<Item> ITEM_TRACK_NTSC = register("visual_track_ntsc", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.NTSC));
+    public static final DeferredItem<Item> ITEM_TRACK_OUTLINE = register("visual_track_outline", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.OUTLINE));
+    public static final DeferredItem<Item> ITEM_TRACK_PENCIL = register("visual_track_pencil", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.PENIL));
+    public static final DeferredItem<Item> ITEM_TRACK_PHOSPHOR = register("visual_track_phosphor", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.PHOSPHOR));
+    public static final DeferredItem<Item> ITEM_TRACK_SCAN_PINCUSHION = register("visual_track_scan_pincushion", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.SCAN_PINCUSHION));
+    public static final DeferredItem<Item> ITEM_TRACK_SOBEL = register("visual_track_sobel", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.SOBEL));
+    public static final DeferredItem<Item> ITEM_TRACK_SPIDER = register("visual_track_spider", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.SPIDER));
+    public static final DeferredItem<Item> ITEM_TRACK_WOBBLE = register("visual_track_wobble", () -> new ItemVisualTrack(new Item.Properties().stacksTo(1), EnumTrackID.WOBBLE));
+
+    static <T extends Item> DeferredItem<T> register(String id, Supplier<T> item) {
+        DeferredItem<T> DUMMY_ITEM = ITEMS.register(id, item);
+        ITEM_ARRAY.add(DUMMY_ITEM);
+        return DUMMY_ITEM;
+    }
+}

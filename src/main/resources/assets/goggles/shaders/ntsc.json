@@ -1,0 +1,92 @@
+{
+    "targets": [
+        "swap",
+        "swap2",
+        "previous"
+    ],
+    "passes": [
+        {
+            "name": "goggles:ntsc_encode",
+            "intarget": "minecraft:main",
+            "outtarget": "swap"
+        },
+        {
+            "name": "goggles:ntsc_decode",
+            "intarget": "swap",
+            "outtarget": "swap2",
+            "auxtargets": [
+                {
+                    "name": "BaseSampler",
+                    "id": "minecraft:main"
+                }
+            ]
+        },
+        {
+            "name": "goggles:color_convolve",
+            "intarget": "swap2",
+            "outtarget": "swap"
+        },
+        {
+            "name": "goggles:deconverge",
+            "intarget": "swap",
+            "outtarget": "minecraft:main"
+        },
+        {
+            "name": "goggles:blur",
+            "intarget": "minecraft:main",
+            "outtarget": "swap",
+            "uniforms": [
+                {
+                    "name": "BlurDir",
+                    "values": [ 1.0, 0.0 ]
+                },
+                {
+                    "name": "Radius",
+                    "values": [ 10.0 ]
+                }
+            ]
+        },
+        {
+            "name": "goggles:blur",
+            "intarget": "swap",
+            "outtarget": "minecraft:main",
+            "uniforms": [
+                {
+                    "name": "BlurDir",
+                    "values": [ 0.0, 1.0 ]
+                },
+                {
+                    "name": "Radius",
+                    "values": [ 10.0 ]
+                }
+            ]
+        },
+        {
+            "name": "goggles:scan_pincushion",
+            "intarget": "minecraft:main",
+            "outtarget": "swap"
+        },
+        {
+            "name": "goggles:phosphor",
+            "intarget": "swap",
+            "outtarget": "minecraft:main",
+            "auxtargets": [
+                {
+                    "name": "PrevSampler",
+                    "id": "previous"
+                }
+            ],
+            "uniforms": [
+                {
+                    "name": "Phosphor",
+                    "values": [ 0.4, 0.4, 0.4 ]
+                }
+            ]
+        },
+        {
+            "name": "goggles:blit",
+            "intarget": "minecraft:main",
+            "outtarget": "previous"
+        }
+    ]
+}
