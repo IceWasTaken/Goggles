@@ -4,7 +4,7 @@
         "srcrgb": "one",
         "dstrgb": "zero"
     },
-    "vertex": "goggles:sobel",
+    "vertex": "sobel",
     "fragment": "goggles:wobble",
     "attributes": [ "Position" ],
     "samplers": [

@@ -20,6 +20,7 @@ public class CreativeTabRegistry {
                     .withTabsBefore(CreativeModeTabs.COMBAT)
                     .icon(Items.AMETHYST_SHARD::getDefaultInstance).displayItems(
                             (itemDisplayParameters, output) -> {
+                                output.accept(ItemRegistry.ITEM_VISION_DEVICE);
                                 for(DeferredItem<? extends Item> i : ItemRegistry.ITEM_ARRAY) {
                                     output.accept(i);
                                 }

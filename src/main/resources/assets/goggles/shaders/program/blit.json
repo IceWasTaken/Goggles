@@ -4,8 +4,8 @@
         "srcrgb": "srcalpha",
         "dstrgb": "1-srcalpha"
     },
-    "vertex": "goggles:blit",
-    "fragment": "goggles:blit",
+    "vertex": "blit",
+    "fragment": "blit",
     "attributes": [ "Position" ],
     "samplers": [
         { "name": "DiffuseSampler" }

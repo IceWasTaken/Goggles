@@ -13,9 +13,6 @@ import net.neoforged.neoforge.client.event.InputEvent;
 import org.lwjgl.glfw.GLFW;
 
 import java.util.Objects;
-import java.util.concurrent.locks.ReentrantLock;
-
-import static net.ice.goggles.Goggles.LOGGER;
 
 @EventBusSubscriber(modid = Goggles.MODID)
 public class ShaderUtil {
@@ -23,11 +20,12 @@ public class ShaderUtil {
     public static String localShaderPath = "";
     public static boolean isDefaultShader = true;
 
+    @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onF5Use(InputEvent.Key event) {
         if(event.getKey() == GLFW.GLFW_KEY_F5) {
-            ResourceLocation ToReload = ResourceLocation.withDefaultNamespace(localShaderPath);
-            if(!ToReload.getPath().equals("null")) {
+            ResourceLocation ToReload = ResourceLocation.fromNamespaceAndPath("goggles", "shaders/"+localShaderPath);
+            if(!ToReload.getPath().equals("shaders/")) {
                 Minecraft.getInstance().gameRenderer.loadEffect(ToReload);
             }
         }
@@ -35,14 +33,12 @@ public class ShaderUtil {
 
     @SubscribeEvent
     public static void onRenderGameOverlay(ClientTickEvent.Post event) {
-        if(!Objects.equals(localShaderPath, "null")) {
-            if (isDefaultShader) {
-                Minecraft.getInstance().gameRenderer.shutdownEffect();
-            }
-            if (ToLoadShader & !isDefaultShader) {
-                Minecraft.getInstance().gameRenderer.loadEffect(ResourceLocation.fromNamespaceAndPath("goggles", "shaders/"+localShaderPath));
-                ToLoadShader = false;
-            }
+        if (isDefaultShader || Objects.equals(localShaderPath, "null")) {
+            Minecraft.getInstance().gameRenderer.shutdownEffect();
+        }
+        if (ToLoadShader & !isDefaultShader) {
+            Minecraft.getInstance().gameRenderer.loadEffect(ResourceLocation.fromNamespaceAndPath("goggles", "shaders/"+localShaderPath));
+            ToLoadShader = false;
         }
     }
 

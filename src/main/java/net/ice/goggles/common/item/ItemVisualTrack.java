@@ -27,6 +27,7 @@ public class ItemVisualTrack extends Item implements IVisualTrack {
         this.trackID = trackID;
     }
 
+
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         if(this == ItemRegistry.ITEM_TRACK_NULL.get()) {
@@ -43,8 +44,10 @@ public class ItemVisualTrack extends Item implements IVisualTrack {
         ItemStack helmet = player.getInventory().armor.get(3);
         if(helmet.getItem() instanceof IVisualGoggles) {
             if(!helmet.has(DataComponentRegistry.TRACK_ID)) {
-                GoggleUtil.insertVisualTrack(helmet, trackID);
-                return InteractionResultHolder.consume(player.getItemInHand(usedHand));
+                if(level.isClientSide()) {
+                    GoggleUtil.insertVisualTrack(helmet, trackID);
+                    return InteractionResultHolder.consume(player.getItemInHand(usedHand));
+                }
             }
         }
 

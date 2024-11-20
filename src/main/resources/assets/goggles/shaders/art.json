@@ -56,7 +56,7 @@
             ]
         },
         {
-            "name": "goggles:blit",
+            "name": "blit",
             "intarget": "1",
             "outtarget": "minecraft:main"
         }

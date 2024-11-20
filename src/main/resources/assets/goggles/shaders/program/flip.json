@@ -5,7 +5,7 @@
         "dstrgb": "zero"
     },
     "vertex": "goggles:flip",
-    "fragment": "goggles:blit",
+    "fragment": "blit",
     "attributes": [ "Position" ],
     "samplers": [
         { "name": "DiffuseSampler" }

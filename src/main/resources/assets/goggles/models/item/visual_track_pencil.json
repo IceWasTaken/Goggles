@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "goggles:item/visual_track_pencil"
+  }
+}

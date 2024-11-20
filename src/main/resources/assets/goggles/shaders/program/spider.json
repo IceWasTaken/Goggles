@@ -4,8 +4,8 @@
         "srcrgb": "one",
         "dstrgb": "zero"
     },
-    "vertex": "goggles:rotscale",
-    "fragment": "goggles:spiderclip",
+    "vertex": "rotscale",
+    "fragment": "spiderclip",
     "attributes": [ "Position" ],
     "samplers": [
         { "name": "DiffuseSampler" },

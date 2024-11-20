@@ -18,7 +18,7 @@
             ]
         },
         {
-            "name": "goggles:blit",
+            "name": "goggles:blit2",
             "intarget": "swap",
             "outtarget": "minecraft:main"
         }
