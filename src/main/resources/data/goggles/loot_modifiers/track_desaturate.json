@@ -1,0 +1,14 @@
+{
+  "type": "goggles:add_item",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/desert_pyramid"
+    },
+    {
+      "chance": 0.40,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "item": "goggles:visual_track_desaturate"
+}

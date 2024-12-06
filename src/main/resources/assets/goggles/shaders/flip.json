@@ -1,0 +1,17 @@
+{
+    "targets": [
+        "swap"
+    ],
+    "passes": [
+        {
+            "name": "goggles:flip",
+            "intarget": "minecraft:main",
+            "outtarget": "swap"
+        },
+        {
+            "name": "goggles:blit2",
+            "intarget": "swap",
+            "outtarget": "minecraft:main"
+        }
+    ]
+}
